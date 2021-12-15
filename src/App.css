@@ -6,11 +6,18 @@
 }
 
 .itemLibrary {
+  /* 默认情况下，所有的直接子元素都被认为时flex项，并从左到右依次排列在一行中 */
+  /* 如果flex项的宽度总和大于容器，那么flex项将按比例缩小，直到它们适应flex容器宽度 */
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 50px 10px 0 10px;
-  width: 200px;
+  /* flex-direction决定主轴方向 默认为row */
+  /* flex-direction: row; */
+  /* flex-wrap决定当排列不下时是否换行以及换行的方式，默认为nowrap */
+  /* flex-flow是flex-direction和flex-wrap的简写形式，默认值为 row nowarp */
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 205px;
   height: 100%;
   background-color: wheat;
 }
@@ -22,7 +29,11 @@
 }
 
 .itemWrapper {
+  flex: 1;
+  margin: 25px;
   width: 50px;
+  min-width: 50px;
+  max-width: 50px;
   height: 50px;
   border: 1px solid #ccc;
   position: relative;
@@ -31,7 +42,7 @@
 
 .itemWrapper svg {
   position: absolute;
-  z-index: 1;
+  z-index: -1;
 }
 
 .itemWrapper svg use {
